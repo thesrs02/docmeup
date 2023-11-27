@@ -1,7 +1,0 @@
-services:
-  app:
-    build: .
-    image: gcr.io/lms-primary/hello-world
-    command: npm start
-    ports:
-      - "8080:8080"

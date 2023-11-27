@@ -1,0 +1,24 @@
+DOCS: https://faun.pub/containerize-and-deploy-a-node-app-on-gcp-kubernetes-f4eb3af54a42
+
+
+
+WORKED: gcloud artifacts repositories create hello-v2 \
+    --project=lms-primary \
+    --repository-format=docker \
+    --location=us-central1 \
+    --description="test repository"
+
+
+WORKED: gcloud builds submit --tag us-central1-docker.pkg.dev/lms-primary/hello-v2/hellov2-gke .
+
+
+
+IMPORTANT COMMANDS:
+
+kubectl get pods
+kubectl get deployments
+kubectl get deployments --all-namespaces | grep <deployment-name>
+
+// check if hpa is done
+kubectl get hpa
+kubectl get hpa --all-namespaces | grep cpu
